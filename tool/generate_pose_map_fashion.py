@@ -5,7 +5,7 @@ import os
 
 MISSING_VALUE = -1
 # fix PATH
-img_dir = 'your_path/deepfashion/fashion_resize'
+img_dir = 'D:\\Archivos UADE\\PFI\\Desarrollos\\ADGAN\\deepfashion\\fashion_resize'
 annotations_file = os.path.join(img_dir, 'fashion-resize-annotation-train.csv') #pose annotation path
 save_path = os.path.join(img_dir, 'trainK')
 if not os.path.exists(save_path):
@@ -27,6 +27,7 @@ def cords_to_map(cords, img_size, sigma=6):
     return result
 
 def compute_pose(image_dir, annotations_file, savePath, sigma):
+    annotations_file = annotations_file.replace("\\", "/")
     annotations_file = pd.read_csv(annotations_file, sep=':')
     annotations_file = annotations_file.set_index('name')
     image_size = (256, 176)
